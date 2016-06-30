@@ -61,6 +61,7 @@ __FBSDID("$FreeBSD: src/usr.bin/whois/whois.c,v 1.41 2004/08/25 15:34:44 mbr Exp
 #include <string.h>
 #include <sysexits.h>
 #include <unistd.h>
+#include <pthread.h>
 
 #define	ABUSEHOST	"whois.abuse.net"
 #define	NICHOST		"whois.crsnic.net"
@@ -100,8 +101,35 @@ static void s_asprintf(char **ret, const char *format, ...) __printflike(2, 3);
 static void usage(void);
 static void whois(const char *, const char *, int);
 
+#define exit(retval) pthread_exit((void *)retval)
+
+int _main(int argc, char *argv[]);
+void *thread_main(void *_arg);
+
+int main_whois(void)
+{
+    pthread_t thread;
+    int retval;
+    int argc = 2;
+    char *argv[] = {"whois", "hnw.jp"};
+    void *arg[] = {(void *)argc, argv};
+    pthread_create(&thread, NULL, thread_main, (void *)arg);
+
+    pthread_join(thread, (void **)&retval);
+    printf("retval=%d\n", retval);
+    return retval;
+}
+
+void *thread_main(void *_arg)
+{
+    void **arg = (void **)_arg;
+    int argc = (int)arg[0];
+    char **argv = (char**)arg[1];
+    return (void *)_main(argc, argv);
+}
+
 int
-main(int argc, char *argv[])
+_main(int argc, char *argv[])
 {
 	const char *country, *host;
 	char *qnichost;

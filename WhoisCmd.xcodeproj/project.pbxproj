@@ -10,6 +10,8 @@
 		FE043D601D241B1B003C42ED /* WhoisCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = FE043D5F1D241B1B003C42ED /* WhoisCmd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE043D671D241B1B003C42ED /* WhoisCmd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE043D5C1D241B1B003C42ED /* WhoisCmd.framework */; };
 		FE043D6C1D241B1C003C42ED /* WhoisCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D6B1D241B1C003C42ED /* WhoisCmdTests.swift */; };
+		FE043D771D241C89003C42ED /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = FE043D761D241C89003C42ED /* whois.c */; };
+		FE043D791D242549003C42ED /* WhoisCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D781D242549003C42ED /* WhoisCmd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		FE043D661D241B1B003C42ED /* WhoisCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoisCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE043D6B1D241B1C003C42ED /* WhoisCmdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisCmdTests.swift; sourceTree = "<group>"; };
 		FE043D6D1D241B1C003C42ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE043D761D241C89003C42ED /* whois.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = whois.c; sourceTree = "<group>"; };
+		FE043D781D242549003C42ED /* WhoisCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoisCmd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +75,10 @@
 		FE043D5E1D241B1B003C42ED /* WhoisCmd */ = {
 			isa = PBXGroup;
 			children = (
+				FE043D761D241C89003C42ED /* whois.c */,
 				FE043D5F1D241B1B003C42ED /* WhoisCmd.h */,
 				FE043D611D241B1B003C42ED /* Info.plist */,
+				FE043D781D242549003C42ED /* WhoisCmd.swift */,
 			);
 			path = WhoisCmd;
 			sourceTree = "<group>";
@@ -194,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE043D771D241C89003C42ED /* whois.c in Sources */,
+				FE043D791D242549003C42ED /* WhoisCmd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +318,7 @@
 		FE043D711D241B1C003C42ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +329,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.hnw.WhoisCmd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		FE043D721D241B1C003C42ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
