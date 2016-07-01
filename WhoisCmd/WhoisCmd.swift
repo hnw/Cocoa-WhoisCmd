@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import CStringArray
 
 class WhoisCmd {
-    init () {
-        print("hogehoge")
-        main_whois()
+    init (_ domain: String) {
+        let arg = CStringArray(["whois", domain])
+        main_whois(Int32(arg.pointers.count), arg.pointers)
     }
 }

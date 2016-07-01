@@ -12,6 +12,7 @@
 		FE043D6C1D241B1C003C42ED /* WhoisCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D6B1D241B1C003C42ED /* WhoisCmdTests.swift */; };
 		FE043D771D241C89003C42ED /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = FE043D761D241C89003C42ED /* whois.c */; };
 		FE043D791D242549003C42ED /* WhoisCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D781D242549003C42ED /* WhoisCmd.swift */; };
+		FE05033C1D25F06500863554 /* CStringArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB2F3D01D258BC50040AB9F /* CStringArray.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		FE043D6D1D241B1C003C42ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE043D761D241C89003C42ED /* whois.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = whois.c; sourceTree = "<group>"; };
 		FE043D781D242549003C42ED /* WhoisCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoisCmd.swift; sourceTree = "<group>"; };
+		FEB2F3D01D258BC50040AB9F /* CStringArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CStringArray.framework; path = Carthage/Build/iOS/CStringArray.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE05033C1D25F06500863554 /* CStringArray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +60,7 @@
 		FE043D521D241B1B003C42ED = {
 			isa = PBXGroup;
 			children = (
+				FEB2F3D01D258BC50040AB9F /* CStringArray.framework */,
 				FE043D5E1D241B1B003C42ED /* WhoisCmd */,
 				FE043D6A1D241B1B003C42ED /* WhoisCmdTests */,
 				FE043D5D1D241B1B003C42ED /* Products */,
@@ -114,6 +118,7 @@
 				FE043D581D241B1B003C42ED /* Frameworks */,
 				FE043D591D241B1B003C42ED /* Headers */,
 				FE043D5A1D241B1B003C42ED /* Resources */,
+				FEB2F3D21D258BD70040AB9F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -194,6 +199,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FEB2F3D21D258BD70040AB9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CStringArray.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FE043D571D241B1B003C42ED /* Sources */ = {
@@ -323,6 +345,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WhoisCmd/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -341,6 +367,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WhoisCmd/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -389,6 +419,7 @@
 				FE043D721D241B1C003C42ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE043D731D241B1C003C42ED /* Build configuration list for PBXNativeTarget "WhoisCmdTests" */ = {
 			isa = XCConfigurationList;
@@ -397,6 +428,7 @@
 				FE043D751D241B1C003C42ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

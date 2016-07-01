@@ -22,8 +22,7 @@ class WhoisCmdTests: XCTestCase {
     }
     
     func testExample() {
-        print("x")
-        let _ = WhoisCmd()
+        let _ = WhoisCmd("hnw.jp")
         XCTAssert(true)
     }
 }

@@ -106,13 +106,11 @@ static void whois(const char *, const char *, int);
 int _main(int argc, char *argv[]);
 void *thread_main(void *_arg);
 
-int main_whois(void)
+int main_whois(int argc, char *const argv[])
 {
     pthread_t thread;
     int retval;
-    int argc = 2;
-    char *argv[] = {"whois", "hnw.jp"};
-    void *arg[] = {(void *)argc, argv};
+    void *arg[] = {(void *)(long)argc, (void *const)argv};
     pthread_create(&thread, NULL, thread_main, (void *)arg);
 
     pthread_join(thread, (void **)&retval);
@@ -125,7 +123,7 @@ void *thread_main(void *_arg)
     void **arg = (void **)_arg;
     int argc = (int)arg[0];
     char **argv = (char**)arg[1];
-    return (void *)_main(argc, argv);
+    return (void *)(long)_main(argc, argv);
 }
 
 int
