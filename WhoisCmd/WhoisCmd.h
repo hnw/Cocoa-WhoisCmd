@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char WhoisCmdVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <WhoisCmd/PublicHeader.h>
 
-extern int main_whois(int argc, char *const argv[]);
+extern void *whois_main_routine(void *_arg);

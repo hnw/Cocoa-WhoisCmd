@@ -101,29 +101,21 @@ static void s_asprintf(char **ret, const char *format, ...) __printflike(2, 3);
 static void usage(void);
 static void whois(const char *, const char *, int);
 
-#define exit(retval) pthread_exit((void *)retval)
+#define SHUTDOWN() write(ctrl_fd, "\n", sizeof("\n"))
+#define exit(retval) {SHUTDOWN(); pthread_exit((void *)retval);}
 
+int ctrl_fd = -1;
 int _main(int argc, char *argv[]);
-void *thread_main(void *_arg);
 
-int main_whois(int argc, char *const argv[])
-{
-    pthread_t thread;
-    int retval;
-    void *arg[] = {(void *)(long)argc, (void *const)argv};
-    pthread_create(&thread, NULL, thread_main, (void *)arg);
-
-    pthread_join(thread, (void **)&retval);
-    printf("retval=%d\n", retval);
-    return retval;
-}
-
-void *thread_main(void *_arg)
+void *whois_main_routine(void *_arg)
 {
     void **arg = (void **)_arg;
-    int argc = (int)arg[0];
-    char **argv = (char**)arg[1];
-    return (void *)(long)_main(argc, argv);
+    int argc = (int)arg[1];
+    char **argv = (char**)arg[2];
+    ctrl_fd = (int)arg[0];
+    void *retval = (void *)(long)_main(argc, argv);
+    SHUTDOWN();
+    return retval;
 }
 
 int
