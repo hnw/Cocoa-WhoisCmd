@@ -131,6 +131,7 @@ _main(int argc, char *argv[])
 
 	country = host = qnichost = NULL;
 	flags = use_qnichost = 0;
+	optind = 1; // initialize for getopt
 	while ((ch = getopt(argc, argv, "aAbc:dgh:iIlmp:QrR6")) != -1) {
 		switch (ch) {
 		case 'a':
