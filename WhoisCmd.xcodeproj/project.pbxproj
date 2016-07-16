@@ -12,7 +12,8 @@
 		FE043D6C1D241B1C003C42ED /* WhoisCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D6B1D241B1C003C42ED /* WhoisCmdTests.swift */; };
 		FE043D771D241C89003C42ED /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = FE043D761D241C89003C42ED /* whois.c */; };
 		FE043D791D242549003C42ED /* WhoisCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE043D781D242549003C42ED /* WhoisCmd.swift */; };
-		FE05033C1D25F06500863554 /* CStringArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB2F3D01D258BC50040AB9F /* CStringArray.framework */; };
+		FE987D7D1D3A19650023CC0D /* UnixyCmd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE987D7C1D3A19650023CC0D /* UnixyCmd.framework */; };
+		FE987D7F1D3A1E780023CC0D /* CStringArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB2F3D01D258BC50040AB9F /* CStringArray.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		FE043D6D1D241B1C003C42ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE043D761D241C89003C42ED /* whois.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = whois.c; sourceTree = "<group>"; };
 		FE043D781D242549003C42ED /* WhoisCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoisCmd.swift; sourceTree = "<group>"; };
+		FE987D7C1D3A19650023CC0D /* UnixyCmd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnixyCmd.framework; path = Carthage/Build/iOS/UnixyCmd.framework; sourceTree = "<group>"; };
 		FEB2F3D01D258BC50040AB9F /* CStringArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CStringArray.framework; path = Carthage/Build/iOS/CStringArray.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,7 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE05033C1D25F06500863554 /* CStringArray.framework in Frameworks */,
+				FE987D7F1D3A1E780023CC0D /* CStringArray.framework in Frameworks */,
+				FE987D7D1D3A19650023CC0D /* UnixyCmd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +63,7 @@
 		FE043D521D241B1B003C42ED = {
 			isa = PBXGroup;
 			children = (
+				FE987D7C1D3A19650023CC0D /* UnixyCmd.framework */,
 				FEB2F3D01D258BC50040AB9F /* CStringArray.framework */,
 				FE043D5E1D241B1B003C42ED /* WhoisCmd */,
 				FE043D6A1D241B1B003C42ED /* WhoisCmdTests */,
@@ -208,6 +212,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/CStringArray.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/UnixyCmd.framework",
 			);
 			outputPaths = (
 			);
