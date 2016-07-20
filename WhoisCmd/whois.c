@@ -100,9 +100,11 @@ static void s_asprintf(char **ret, const char *format, ...) __printflike(2, 3);
 static void usage(void);
 static void whois(const char *, const char *, int);
 
+#include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
-#define exit(retval) {close(STDOUT_FILENO);close(STDERR_FILENO);pthread_exit((void *)retval);}
+
+static inline void exit(retval) {fflush(stdout);close(STDOUT_FILENO);fflush(stderr);close(STDERR_FILENO);pthread_exit((void *)retval);}
 
 int
 whois_main(int argc, char *argv[])
