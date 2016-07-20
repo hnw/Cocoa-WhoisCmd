@@ -103,8 +103,8 @@ static void whois(const char *, const char *, int);
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
-
-static inline void exit(retval) {fflush(stdout);close(STDOUT_FILENO);fflush(stderr);close(STDERR_FILENO);pthread_exit((void *)retval);}
+#define exit unixycmd_exit
+static inline void unixycmd_exit(retval) {fflush(stdout);close(STDOUT_FILENO);fflush(stderr);close(STDERR_FILENO);pthread_exit((void *)retval);}
 
 int
 whois_main(int argc, char *argv[])
@@ -209,6 +209,7 @@ whois_main(int argc, char *argv[])
 		argv++;
 	}
 	exit(0);
+	return 0;
 }
 
 /*

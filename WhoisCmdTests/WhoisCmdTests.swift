@@ -24,9 +24,9 @@ class WhoisCmdTests: XCTestCase {
     func testExample() {
         let cmd = WhoisCmd(["whois", "hnw.jp"])
         cmd.exec()
-        //print("cout=\(cmd.cout)")
-        //print("cerr=\(cmd.cerr)")
-        //print("retval=\(cmd.retval)")
+        print("cout=\(cmd.cout)")
+        print("cerr=\(cmd.cerr)")
+        print("retval=\(cmd.retval)")
         XCTAssert(true)
     }
 }
